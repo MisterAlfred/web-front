@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/MisterAlfred/web-front/compare/v1.0.1...v1.0.2) (2024-12-17)
+
+
+### Bug Fixes
+
+* Change pipeline process ([fc91f12](https://github.com/MisterAlfred/web-front/commit/fc91f12fad7f5ea1d27de05ca8d7715898ed180c))
+
 ## [1.0.1](https://github.com/MisterAlfred/web-front/compare/v1.0.0...v1.0.1) (2024-12-17)
 
 
