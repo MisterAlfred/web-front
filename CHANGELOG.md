@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/MisterAlfred/web-front/compare/v1.1.0...v1.1.1) (2024-12-17)
+
+
+### Reverts
+
+* Revert "feat:ALFRED-6-Add shadcn ([#12](https://github.com/MisterAlfred/web-front/issues/12))" ([#13](https://github.com/MisterAlfred/web-front/issues/13)) ([3700108](https://github.com/MisterAlfred/web-front/commit/370010820fa7987f6d1ba2d4d931ea5e1df2f765))
+
 # [1.1.0](https://github.com/MisterAlfred/web-front/compare/v1.0.2...v1.1.0) (2024-12-17)
 
 
