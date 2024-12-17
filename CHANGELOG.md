@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/MisterAlfred/web-front/compare/v1.0.2...v1.1.0) (2024-12-17)
+
+
+### Features
+
+* Add démo déployment ([#9](https://github.com/MisterAlfred/web-front/issues/9)) ([415d0e3](https://github.com/MisterAlfred/web-front/commit/415d0e37fb6de829529955bf61cbc0b056140148))
+
 ## [1.0.2](https://github.com/MisterAlfred/web-front/compare/v1.0.1...v1.0.2) (2024-12-17)
 
 
