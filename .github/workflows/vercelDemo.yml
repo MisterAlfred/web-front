@@ -22,7 +22,7 @@ jobs:
       - name: Notify Discord
         if: always()
         run: |
-            MESSAGE="🚀 **Déploiement de la démo réussi !**\n🔗 URL de la démo : https://alfred-front-aseh3d451-yooo31s-projects.vercel.app/"
+            MESSAGE="🚀 **Déploiement de la démo réussi !**\n🔗 URL de la démo : https://alfred-front-yooo31-yooo31s-projects.vercel.app/"
             curl -H "Content-Type: application/json" \
               -X POST \
               -d "{\"content\": \"$MESSAGE\"}" \
