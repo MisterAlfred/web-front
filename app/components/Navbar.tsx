@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronDown, Menu } from "lucide-react"; // Icônes modernes
+import { ChevronDown, Menu } from "lucide-react";
 
 const Navbar = () => {
   const [currentModule, setCurrentModule] = useState("Création de Facture");
