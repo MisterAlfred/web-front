@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/MisterAlfred/web-front/compare/v1.1.1...v1.2.0) (2024-12-18)
+
+
+### Bug Fixes
+
+* Fix changelog ([b7c0d33](https://github.com/MisterAlfred/web-front/commit/b7c0d332c24cbd56959710c72ac35c211064a933))
+
+
+### Features
+
+* Add Login and Registration form ([#18](https://github.com/MisterAlfred/web-front/issues/18)) ([02ae9c3](https://github.com/MisterAlfred/web-front/commit/02ae9c375241b05cf73d60887a1832c17b8ccf6b))
+* Add Login and Registration form ([#19](https://github.com/MisterAlfred/web-front/issues/19)) ([37e3078](https://github.com/MisterAlfred/web-front/commit/37e307849b7aacec35ac5d5f25f4056022168e03))
+
 # [1.1.0](https://github.com/MisterAlfred/web-front/compare/v1.0.2...v1.1.0) (2024-12-17)
 
 
