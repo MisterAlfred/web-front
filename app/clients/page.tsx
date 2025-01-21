@@ -167,12 +167,8 @@ export default function ClientsPage() {
           }
           className="w-full md:w-1/3 p-2 border border-gray-300 rounded-md"
         >
-          <option value="dateAdded">
-            Date
-          </option>
-          <option value="alphabetical">
-            Nom
-          </option>
+          <option value="dateAdded">Date</option>
+          <option value="alphabetical">Nom</option>
         </select>
       </div>
 

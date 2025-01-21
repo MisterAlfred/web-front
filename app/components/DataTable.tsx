@@ -57,8 +57,8 @@ export const DataTable = <RowDataType extends { archived: boolean }>({
     .filter((item) => (showArchived ? true : !item.archived))
     .filter((item) =>
       columns.some((col) =>
-        String(item[col.key]).toLowerCase().includes(search.toLowerCase())
-      )
+        String(item[col.key]).toLowerCase().includes(search.toLowerCase()),
+      ),
     )
     .sort((a, b) => {
       if (!sortKey) return 0;
@@ -79,7 +79,7 @@ export const DataTable = <RowDataType extends { archived: boolean }>({
 
   const paginatedData = filteredData.slice(
     (currentPage - 1) * rowsPerPage,
-    currentPage * rowsPerPage
+    currentPage * rowsPerPage,
   );
 
   const totalPages = Math.ceil(filteredData.length / rowsPerPage);
@@ -141,14 +141,14 @@ export const DataTable = <RowDataType extends { archived: boolean }>({
                   row.archived
                     ? 'bg-orange-100'
                     : index % 2 === 0
-                    ? 'bg-gray-50'
-                    : 'bg-white'
+                      ? 'bg-gray-50'
+                      : 'bg-white'
                 }
               >
                 {columns.map((col) => (
                   <TableCell key={col.key as string}>
-                  {col.render ? col.render(row) : String(row[col.key])}
-                </TableCell>
+                    {col.render ? col.render(row) : String(row[col.key])}
+                  </TableCell>
                 ))}
               </TableRow>
             ))}
@@ -169,7 +169,9 @@ export const DataTable = <RowDataType extends { archived: boolean }>({
           Page {currentPage} sur {totalPages}
         </span>
         <Button
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+          }
           disabled={currentPage === totalPages}
           variant="outline"
         >

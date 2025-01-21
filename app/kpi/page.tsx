@@ -1,46 +1,58 @@
-"use client";
+'use client';
 
-import { TrendingUp } from "lucide-react";
-import { Bar, BarChart, CartesianGrid, LabelList, XAxis } from "recharts";
+import { TrendingUp } from 'lucide-react';
+import { Bar, BarChart, CartesianGrid, LabelList, XAxis } from 'recharts';
 
-import { KpiCard } from "@/app/components/KpiCard";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { KpiCard } from '@/app/components/KpiCard';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from '@/components/ui/chart';
 
 const depensesData = [
-  { month: "Janvier", amount: 700 },
-  { month: "Février", amount: 600 },
-  { month: "Mars", amount: 800 },
-  { month: "Avril", amount: 900 },
-  { month: "Mai", amount: 1200 },
-  { month: "Juin", amount: 1100 },
-  { month: "Juillet", amount: 950 },
-  { month: "Août", amount: 1050 },
-  { month: "Septembre", amount: 1150 },
-  { month: "Octobre", amount: 1300 },
-  { month: "Novembre", amount: 1500 },
-  { month: "Décembre", amount: 1700 },
+  { month: 'Janvier', amount: 700 },
+  { month: 'Février', amount: 600 },
+  { month: 'Mars', amount: 800 },
+  { month: 'Avril', amount: 900 },
+  { month: 'Mai', amount: 1200 },
+  { month: 'Juin', amount: 1100 },
+  { month: 'Juillet', amount: 950 },
+  { month: 'Août', amount: 1050 },
+  { month: 'Septembre', amount: 1150 },
+  { month: 'Octobre', amount: 1300 },
+  { month: 'Novembre', amount: 1500 },
+  { month: 'Décembre', amount: 1700 },
 ];
 
 const revenusData = [
-  { month: "Janvier", amount: 1200 },
-  { month: "Février", amount: 900 },
-  { month: "Mars", amount: 1100 },
-  { month: "Avril", amount: 1500 },
-  { month: "Mai", amount: 1700 },
-  { month: "Juin", amount: 1400 },
-  { month: "Juillet", amount: 1600 },
-  { month: "Août", amount: 1800 },
-  { month: "Septembre", amount: 1900 },
-  { month: "Octobre", amount: 2000 },
-  { month: "Novembre", amount: 2200 },
-  { month: "Décembre", amount: 2500 },
+  { month: 'Janvier', amount: 1200 },
+  { month: 'Février', amount: 900 },
+  { month: 'Mars', amount: 1100 },
+  { month: 'Avril', amount: 1500 },
+  { month: 'Mai', amount: 1700 },
+  { month: 'Juin', amount: 1400 },
+  { month: 'Juillet', amount: 1600 },
+  { month: 'Août', amount: 1800 },
+  { month: 'Septembre', amount: 1900 },
+  { month: 'Octobre', amount: 2000 },
+  { month: 'Novembre', amount: 2200 },
+  { month: 'Décembre', amount: 2500 },
 ];
 
 const chartConfig = {
   amount: {
-    label: "Montant (€)",
-    color: "hsl(var(--chart-1))",
+    label: 'Montant (€)',
+    color: 'hsl(var(--chart-1))',
   },
 } satisfies ChartConfig;
 
@@ -75,9 +87,17 @@ export default function KpiPage() {
                   axisLine={false}
                   tickFormatter={(value) => value.slice(0, 3)}
                 />
-                <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
+                <ChartTooltip
+                  cursor={false}
+                  content={<ChartTooltipContent hideLabel />}
+                />
                 <Bar dataKey="amount" fill="var(--color-desktop)" radius={8}>
-                  <LabelList position="top" offset={12} className="fill-foreground" fontSize={12} />
+                  <LabelList
+                    position="top"
+                    offset={12}
+                    className="fill-foreground"
+                    fontSize={12}
+                  />
                 </Bar>
               </BarChart>
             </ChartContainer>
@@ -105,9 +125,17 @@ export default function KpiPage() {
                   axisLine={false}
                   tickFormatter={(value) => value.slice(0, 3)}
                 />
-                <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
+                <ChartTooltip
+                  cursor={false}
+                  content={<ChartTooltipContent hideLabel />}
+                />
                 <Bar dataKey="amount" fill="var(--color-desktop)" radius={8}>
-                  <LabelList position="top" offset={12} className="fill-foreground" fontSize={12} />
+                  <LabelList
+                    position="top"
+                    offset={12}
+                    className="fill-foreground"
+                    fontSize={12}
+                  />
                 </Bar>
               </BarChart>
             </ChartContainer>
