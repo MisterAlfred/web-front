@@ -2,16 +2,11 @@
 
 import * as React from "react"
 import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
+  ReceiptText,
+  Wallet,
+  Euro,
+  ChartLine,
+  Contact,
 } from "lucide-react"
 
 import { NavMain } from "@/app/components/Nav/NavMain"
@@ -23,61 +18,54 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { TeamSwitcher } from "@/app/components/Nav/NavHeader"
+import { NavHeader } from "@/app/components/Nav/NavHeader"
 
 const data = {
   user: {
     name: "John Doe",
     email: "john@doe.com",
   },
-  header: [
-    {
-      name: "Airbus",
-      logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    }
-  ],
+  header: {
+    name: "Airbus",
+    logo: "https://www.mulesoft.com/sites/default/files/2018-05/MS_CustomerStory_Airbus_Logo.png",
+    plan: "Enterprise",
+  },
   firstGroup: [
     {
-      title: "Design Engineering",
-      url: "#",
-      icon: Frame,
+      title: "Devis",
+      url: "/devis",
+      icon: ReceiptText,
     },
     {
-      title: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
+      title: "Facturations",
+      url: "/facture",
+      icon: Euro,
     },
     {
-      title: "Travel",
-      url: "#",
-      icon: Map,
+      title: "Paiements",
+      url: "/paiement",
+      icon: Wallet,
     },
   ],
   secondGroup: [
     {
-      title: "Design Engineering",
-      url: "#",
-      icon: Frame,
+      title: "Clients",
+      url: "/clients",
+      icon: Contact,
     },
     {
-      title: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      title: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
+      title: "KPIs",
+      url: "/kpi",
+      icon: ChartLine,
+    }
+  ]
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.header} />
+        <NavHeader team={data.header} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain sectionTitle="Financement" items={data.firstGroup} />
