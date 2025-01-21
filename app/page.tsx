@@ -1,31 +1,28 @@
-import Card from '@/app/components/Card';
+'use client';
+
+import * as React from 'react';
+import { KpiCard } from '@/app/components/KpiCard';
 
 export default function HomePage() {
   return (
-    <div className="grid grid-cols-2 gap-4 p-4">
-      <div className="col-span-1 flex flex-col gap-4">
-        <Card title="Raccourcis">
-          <button className="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-            Créer une Facture
-          </button>
-          <button className="w-full p-2 bg-green-500 text-white rounded-md hover:bg-green-600 mt-2">
-            Ajouter un Client
-          </button>
-        </Card>
-      </div>
+    <div className="p-6 grid gap-6">
+      <section>
+        <h1 className="text-2xl font-bold">Bonjour, John Doe 👋</h1>
+        <p className="text-muted-foreground">
+          Voici un aperçu rapide de vos performances.
+        </p>
+      </section>
 
-      <div className="col-span-1 grid grid-rows-2 gap-4">
-        <Card title="Utilisateur Actif">
-          <p>John Doe</p>
-          <p>Dernière connexion : 01/01/2024</p>
-        </Card>
-        <Card title="Chiffres Clés">
-          <ul>
-            <li>Total Factures : 120</li>
-            <li>Clients Actifs : 25</li>
-          </ul>
-        </Card>
-      </div>
+      <section>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <KpiCard title="Nombre de Clients" value={120} />
+          <KpiCard title="Nombre Total de Factures" value={230} />
+          <KpiCard title="Factures Payées" value={200} />
+          <KpiCard title="Total Dépenses" value="15 000€" />
+          <KpiCard title="Total Paiements Reçus" value="25 000€" />
+          <KpiCard title="Paiements en Attente Reçu" value="5 000€" />
+        </div>
+      </section>
     </div>
   );
 }
