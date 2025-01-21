@@ -15,11 +15,11 @@ interface RowData {
   archived: boolean;
 }
 
-const fakeFactureData: RowData[] = [
+const fakePaiementData: RowData[] = [
   {
-    "object": "Facture 1",
+    "object": "Paiement 1",
     "client": "Client 1",
-    "reference": "FAC-001",
+    "reference": "PAI-001",
     "date": "16/10/23",
     "totalHT": 100,
     "totalTTC": 110,
@@ -27,9 +27,9 @@ const fakeFactureData: RowData[] = [
     "archived": false
   },
   {
-    "object": "Facture 2",
+    "object": "Paiement 2",
     "client": "Client 2",
-    "reference": "FAC-002",
+    "reference": "PAI-002",
     "date": "17/10/23",
     "totalHT": 200,
     "totalTTC": 220,
@@ -37,9 +37,9 @@ const fakeFactureData: RowData[] = [
     "archived": false
   },
   {
-    "object": "Facture 3",
+    "object": "Paiement 3",
     "client": "Client 3",
-    "reference": "FAC-003",
+    "reference": "PAI-003",
     "date": "18/10/23",
     "totalHT": 300,
     "totalTTC": 330,
@@ -47,9 +47,9 @@ const fakeFactureData: RowData[] = [
     "archived": false
   },
   {
-    "object": "Facture 4",
+    "object": "Paiement 4",
     "client": "Client 4",
-    "reference": "FAC-004",
+    "reference": "PAI-004",
     "date": "19/10/23",
     "totalHT": 400,
     "totalTTC": 440,
@@ -57,9 +57,9 @@ const fakeFactureData: RowData[] = [
     "archived": false
   },
   {
-    "object": "Facture 5",
+    "object": "Paiement 5",
     "client": "Client 5",
-    "reference": "FAC-005",
+    "reference": "PAI-005",
     "date": "20/10/23",
     "totalHT": 500,
     "totalTTC": 550,
@@ -67,9 +67,9 @@ const fakeFactureData: RowData[] = [
     "archived": false
   },
   {
-    "object": "Facture 6",
+    "object": "Paiement 6",
     "client": "Client 6",
-    "reference": "FAC-006",
+    "reference": "PAI-006",
     "date": "21/10/23",
     "totalHT": 600,
     "totalTTC": 660,
@@ -77,9 +77,9 @@ const fakeFactureData: RowData[] = [
     "archived": false
   },
   {
-    "object": "Facture 7",
+    "object": "Paiement 7",
     "client": "Client 7",
-    "reference": "FAC-007",
+    "reference": "PAI-007",
     "date": "22/10/23",
     "totalHT": 700,
     "totalTTC": 770,
@@ -87,9 +87,9 @@ const fakeFactureData: RowData[] = [
     "archived": false
   },
   {
-    "object": "Facture 8",
+    "object": "Paiement 8",
     "client": "Client 8",
-    "reference": "FAC-008",
+    "reference": "PAI-008",
     "date": "23/10/23",
     "totalHT": 800,
     "totalTTC": 880,
@@ -97,9 +97,9 @@ const fakeFactureData: RowData[] = [
     "archived": false
   },
   {
-    "object": "Facture 9",
+    "object": "Paiement 9",
     "client": "Client 9",
-    "reference": "FAC-009",
+    "reference": "PAI-009",
     "date": "24/10/23",
     "totalHT": 900,
     "totalTTC": 990,
@@ -107,9 +107,9 @@ const fakeFactureData: RowData[] = [
     "archived": false
   },
   {
-    "object": "Facture 10",
+    "object": "Paiement 10",
     "client": "Client 10",
-    "reference": "FAC-010",
+    "reference": "PAI-010",
     "date": "25/10/23",
     "totalHT": 1000,
     "totalTTC": 1100,
@@ -117,9 +117,9 @@ const fakeFactureData: RowData[] = [
     "archived": false
   },
   {
-    "object": "Facture 11",
+    "object": "Paiement 11",
     "client": "Client 11",
-    "reference": "FAC-011",
+    "reference": "PAI-011",
     "date": "26/10/23",
     "totalHT": 1100,
     "totalTTC": 1210,
@@ -127,9 +127,9 @@ const fakeFactureData: RowData[] = [
     "archived": true
   },
   {
-    "object": "Facture 12",
+    "object": "Paiement 12",
     "client": "Client 12",
-    "reference": "FAC-012",
+    "reference": "PAI-012",
     "date": "27/10/23",
     "totalHT": 1200,
     "totalTTC": 1320,
@@ -138,7 +138,7 @@ const fakeFactureData: RowData[] = [
   }
 ]
 
-export default function FacturePage() {
+export default function PaiementPage() {
   const columns: { key: keyof RowData; label: string; sortable?: boolean; render?: (row: RowData) => JSX.Element }[] = [
     { key: 'object', label: 'Objet', sortable: true },
     { key: 'client', label: 'Client', sortable: true },
@@ -164,5 +164,5 @@ export default function FacturePage() {
     },
   ];
 
-  return <DataTable<RowData> title="Liste des Factures" data={fakeFactureData} columns={columns} addPath='/facture' />;
+  return <DataTable<RowData> title="Liste des Paiements" data={fakePaiementData} columns={columns} addPath='/paiement' />;
 }
