@@ -13,28 +13,37 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ChevronLeft, ChevronRight, Archive } from 'lucide-react';
 
-interface DataTableProps {
+// Typage pour les colonnes et les données
+interface Column<RowDataType> {
+  key: keyof RowDataType;
+  label: string;
+  sortable?: boolean;
+  render?: (row: RowDataType) => React.ReactNode;
+}
+
+interface DataTableProps<RowDataType> {
   title: string;
-  data: any[];
-  columns: {
-    key: string;
-    label: string;
-    sortable?: boolean;
-    render?: (row: any) => React.ReactNode;
-  }[];
+  data: RowDataType[];
+  columns: Column<RowDataType>[];
   addPath?: string;
 }
 
-export const DataTable = ({ title, data, columns, addPath = '/ajouter' }: DataTableProps) => {
+export const DataTable = <RowDataType extends { archived: boolean }>({
+  title,
+  data,
+  columns,
+  addPath,
+}: DataTableProps<RowDataType>) => {
   const [search, setSearch] = useState('');
   const [showArchived, setShowArchived] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
 
-  const [sortKey, setSortKey] = useState('');
+  const [sortKey, setSortKey] = useState<keyof RowDataType | ''>('');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
 
-  const handleSort = (key: string) => {
+  // Tri des données
+  const handleSort = (key: keyof RowDataType) => {
     if (sortKey === key) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     } else {
@@ -43,13 +52,12 @@ export const DataTable = ({ title, data, columns, addPath = '/ajouter' }: DataTa
     }
   };
 
+  // Filtrage, tri et pagination
   const filteredData = data
-    .filter((item) =>
-      showArchived ? true : !item.archived
-    )
+    .filter((item) => (showArchived ? true : !item.archived))
     .filter((item) =>
       columns.some((col) =>
-        `${item[col.key]}`.toLowerCase().includes(search.toLowerCase())
+        String(item[col.key]).toLowerCase().includes(search.toLowerCase())
       )
     )
     .sort((a, b) => {
@@ -60,11 +68,13 @@ export const DataTable = ({ title, data, columns, addPath = '/ajouter' }: DataTa
 
       if (typeof valueA === 'string') {
         return sortOrder === 'asc'
-          ? valueA.localeCompare(valueB)
-          : valueB.localeCompare(valueA);
+          ? valueA.localeCompare(valueB as string)
+          : (valueB as string).localeCompare(valueA);
       }
 
-      return sortOrder === 'asc' ? Number(valueA) - Number(valueB) : Number(valueB) - Number(valueA);
+      return sortOrder === 'asc'
+        ? (valueA as number) - (valueB as number)
+        : (valueB as number) - (valueA as number);
     });
 
   const paginatedData = filteredData.slice(
@@ -78,12 +88,14 @@ export const DataTable = ({ title, data, columns, addPath = '/ajouter' }: DataTa
     <div className="p-6">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">{title}</h1>
-        <Button
-          onClick={() => (window.location.href = addPath)}
-          className="bg-blue-500 text-white hover:bg-blue-600"
-        >
-          Ajouter
-        </Button>
+        {addPath && (
+          <Button
+            onClick={() => (window.location.href = `${addPath}/add`)}
+            className="bg-blue-500 text-white hover:bg-blue-600"
+          >
+            Ajouter
+          </Button>
+        )}
       </div>
 
       <div className="flex items-center gap-4 mb-6">
@@ -96,7 +108,9 @@ export const DataTable = ({ title, data, columns, addPath = '/ajouter' }: DataTa
         />
         <Button
           variant="ghost"
-          className={`flex items-center gap-2 ${showArchived ? 'text-blue-500' : 'text-gray-500'}`}
+          className={`flex items-center gap-2 ${
+            showArchived ? 'text-blue-500' : 'text-gray-500'
+          }`}
           onClick={() => setShowArchived(!showArchived)}
         >
           <Archive className="w-4 h-4" />
@@ -110,7 +124,7 @@ export const DataTable = ({ title, data, columns, addPath = '/ajouter' }: DataTa
             <TableRow>
               {columns.map((col) => (
                 <TableHead
-                  key={col.key}
+                  key={col.key as string}
                   onClick={() => col.sortable && handleSort(col.key)}
                   className={col.sortable ? 'cursor-pointer' : ''}
                 >
@@ -121,22 +135,22 @@ export const DataTable = ({ title, data, columns, addPath = '/ajouter' }: DataTa
           </TableHeader>
           <TableBody>
             {paginatedData.map((row, index) => (
-                <TableRow
+              <TableRow
                 key={index}
                 className={
                   row.archived
-                  ? 'bg-orange-100'
-                  : index % 2 === 0
-                  ? 'bg-gray-50'
-                  : 'bg-white'
+                    ? 'bg-orange-100'
+                    : index % 2 === 0
+                    ? 'bg-gray-50'
+                    : 'bg-white'
                 }
-                >
+              >
                 {columns.map((col) => (
-                  <TableCell key={col.key}>
-                  {col.render ? col.render(row) : row[col.key]}
-                  </TableCell>
+                  <TableCell key={col.key as string}>
+                  {col.render ? col.render(row) : String(row[col.key])}
+                </TableCell>
                 ))}
-                </TableRow>
+              </TableRow>
             ))}
           </TableBody>
         </Table>
