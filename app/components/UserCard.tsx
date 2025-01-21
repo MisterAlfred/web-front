@@ -40,7 +40,6 @@ export const UserCard = ({ nom, prenom, email, phone }: UserCardProps) => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        {/* Email */}
         <div className="flex justify-between items-center border-b py-2">
           <span className="text-sm text-gray-600">{email}</span>
           <Button
@@ -52,20 +51,19 @@ export const UserCard = ({ nom, prenom, email, phone }: UserCardProps) => {
             <Copy className="h-4 w-4" />
           </Button>
         </div>
-        {/* Phone */}
         <div className="flex justify-between items-center py-2">
           <span className="text-sm text-gray-600">{phone}</span>
           <Button
             variant="ghost"
             size="icon"
             className="text-gray-500 hover:text-gray-800"
+            onClick={() => navigator.clipboard.writeText(phone)}
           >
             <Copy className="h-4 w-4" />
           </Button>
         </div>
       </CardContent>
       <CardFooter className="flex justify-between items-center">
-        {/* Left side */}
         <div className="flex items-center gap-2">
           <Button
             variant="ghost"
