@@ -25,8 +25,8 @@ jobs:
       - name: Notify Discord
         if: always()
         run: |
-            MESSAGE="🚀 **Déploiement de la production réussi !**\n🔗 URL de la production : https://alfred-front.vercel.app/"
-            curl -H "Content-Type: application/json" \
-              -X POST \
-              -d "{\"content\": \"$MESSAGE\"}" \
-              ${{ secrets.PROD_DISCORD_WEBHOOK_URL }}
+          MESSAGE="🚀 **Déploiement de la production réussi !**\n🔗 URL de la production : https://alfred-front.vercel.app/"
+          curl -H "Content-Type: application/json" \
+            -X POST \
+            -d "{\"content\": \"$MESSAGE\"}" \
+            ${{ secrets.PROD_DISCORD_WEBHOOK_URL }}

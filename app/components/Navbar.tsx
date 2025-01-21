@@ -1,12 +1,17 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronDown, Menu } from "lucide-react";
+import { useState } from 'react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+  DropdownMenuItem,
+} from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { ChevronDown, Menu } from 'lucide-react';
 
 const Navbar = () => {
-  const [currentModule, setCurrentModule] = useState("Création de Facture");
+  const [currentModule, setCurrentModule] = useState('Création de Facture');
 
   return (
     <nav className="flex items-center justify-between bg-white p-4 shadow-sm">
@@ -24,13 +29,15 @@ const Navbar = () => {
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem onClick={() => setCurrentModule("Création de Facture")}>
+            <DropdownMenuItem
+              onClick={() => setCurrentModule('Création de Facture')}
+            >
               Création de Facture
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setCurrentModule("Clients")}>
+            <DropdownMenuItem onClick={() => setCurrentModule('Clients')}>
               Clients
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setCurrentModule("KPI")}>
+            <DropdownMenuItem onClick={() => setCurrentModule('KPI')}>
               KPI
             </DropdownMenuItem>
           </DropdownMenuContent>

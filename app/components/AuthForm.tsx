@@ -1,17 +1,21 @@
-"use client"; // Rendre ce composant client
+'use client'; // Rendre ce composant client
 
-import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { useState } from 'react';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 interface AuthFormProps {
   title: string;
-  type: "login" | "register";
+  type: 'login' | 'register';
 }
 
 export default function AuthForm({ title, type }: AuthFormProps) {
-  const [formData, setFormData] = useState({ email: "", password: "", confirmPassword: "" });
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
@@ -20,7 +24,7 @@ export default function AuthForm({ title, type }: AuthFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+    console.log('Form Submitted:', formData);
     // Ici tu ajouteras ta logique d'API (ex : fetch POST vers ton backend)
   };
 
@@ -59,9 +63,12 @@ export default function AuthForm({ title, type }: AuthFormProps) {
         </div>
 
         {/* Confirm Password Input (Register seulement) */}
-        {type === "register" && (
+        {type === 'register' && (
           <div className="mb-4">
-            <label htmlFor="confirmPassword" className="block text-sm font-medium">
+            <label
+              htmlFor="confirmPassword"
+              className="block text-sm font-medium"
+            >
               Confirmez le mot de passe
             </label>
             <Input
@@ -77,22 +84,22 @@ export default function AuthForm({ title, type }: AuthFormProps) {
 
         {/* Submit Button */}
         <Button type="submit" className="w-full">
-          {type === "login" ? "Connexion" : "Inscription"}
+          {type === 'login' ? 'Connexion' : 'Inscription'}
         </Button>
       </form>
 
       {/* Lien vers une autre page */}
       <p className="mt-4 text-center text-sm">
-        {type === "login" ? (
+        {type === 'login' ? (
           <>
-            Pas encore de compte ?{" "}
+            Pas encore de compte ?{' '}
             <Link href="/register" className="text-blue-600 hover:underline">
               Inscrivez-vous
             </Link>
           </>
         ) : (
           <>
-            Déjà un compte ?{" "}
+            Déjà un compte ?{' '}
             <Link href="/login" className="text-blue-600 hover:underline">
               Connectez-vous
             </Link>
