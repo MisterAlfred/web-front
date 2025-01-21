@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { ReceiptText, Wallet, Euro, ChartLine, Contact } from 'lucide-react';
+import Image from 'next/image';
 
 import { NavMain } from '@/app/components/Nav/NavMain';
 import { NavUser } from '@/app/components/Nav/NavUser';
@@ -66,7 +67,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain sectionTitle="Gestion" items={data.secondGroup} />
       </SidebarContent>
       <SidebarFooter>
-        <h2></h2>
+        <div className="flex items-center justify-center">
+          <Image
+            src="/AlfredGrey.svg"
+            alt="Logo Airbus"
+            width={200}
+            height={200}
+            priority
+          />
+        </div>
       </SidebarFooter>
       <SidebarFooter>
         <NavUser user={data.user} />
