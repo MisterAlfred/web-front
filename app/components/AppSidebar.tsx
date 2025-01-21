@@ -1,65 +1,59 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import {
-  ReceiptText,
-  Wallet,
-  Euro,
-  ChartLine,
-  Contact,
-} from "lucide-react"
+import * as React from 'react';
+import { ReceiptText, Wallet, Euro, ChartLine, Contact } from 'lucide-react';
 
-import { NavMain } from "@/app/components/Nav/NavMain"
-import { NavUser } from "@/app/components/Nav/NavUser"
+import { NavMain } from '@/app/components/Nav/NavMain';
+import { NavUser } from '@/app/components/Nav/NavUser';
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar"
-import { NavHeader } from "@/app/components/Nav/NavHeader"
+} from '@/components/ui/sidebar';
+import { NavHeader } from '@/app/components/Nav/NavHeader';
 
 const data = {
   user: {
-    name: "John Doe",
-    email: "john@doe.com",
+    name: 'John Doe',
+    email: 'john@doe.com',
   },
   header: {
-    name: "Airbus",
-    logo: "https://www.mulesoft.com/sites/default/files/2018-05/MS_CustomerStory_Airbus_Logo.png",
-    plan: "Enterprise",
+    name: 'Airbus',
+    logo: 'https://www.mulesoft.com/sites/default/files/2018-05/MS_CustomerStory_Airbus_Logo.png',
+    plan: 'Enterprise',
   },
   firstGroup: [
     {
-      title: "Devis",
-      url: "/devis",
+      title: 'Devis',
+      url: '/devis',
       icon: ReceiptText,
     },
     {
-      title: "Facturations",
-      url: "/facture",
+      title: 'Facturations',
+      url: '/facture',
       icon: Euro,
     },
     {
-      title: "Paiements",
-      url: "/paiement",
+      title: 'Paiements',
+      url: '/paiement',
       icon: Wallet,
     },
   ],
   secondGroup: [
     {
-      title: "Clients",
-      url: "/clients",
+      title: 'Clients',
+      url: '/clients',
       icon: Contact,
     },
     {
-      title: "KPIs",
-      url: "/kpi",
+      title: 'KPIs',
+      url: '/kpi',
       icon: ChartLine,
-    }
-  ]
-}
+    },
+  ],
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -79,5 +73,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }

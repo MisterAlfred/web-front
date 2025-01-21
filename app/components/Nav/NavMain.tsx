@@ -1,6 +1,6 @@
-"use client"
+'use client';
 
-import { type LucideIcon } from "lucide-react"
+import { type LucideIcon } from 'lucide-react';
 
 import {
   SidebarGroup,
@@ -8,19 +8,19 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from '@/components/ui/sidebar';
 
 export function NavMain({
   sectionTitle,
   items,
 }: {
-  sectionTitle: string,
+  sectionTitle: string;
   items: {
-    title: string
-    url: string
-    icon?: LucideIcon
-    isActive?: boolean
-  }[]
+    title: string;
+    url: string;
+    icon?: LucideIcon;
+    isActive?: boolean;
+  }[];
 }) {
   return (
     <SidebarGroup>
@@ -32,7 +32,9 @@ export function NavMain({
               <a
                 href={item.url}
                 className={`flex items-center gap-2 ${
-                  item.isActive ? "text-sidebar-accent-foreground font-semibold" : ""
+                  item.isActive
+                    ? 'text-sidebar-accent-foreground font-semibold'
+                    : ''
                 }`}
               >
                 {item.icon && <item.icon />}
@@ -43,5 +45,5 @@ export function NavMain({
         ))}
       </SidebarMenu>
     </SidebarGroup>
-  )
+  );
 }
