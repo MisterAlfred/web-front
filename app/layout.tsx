@@ -1,7 +1,8 @@
 import '@/app/globals.css';
 import { Inter } from 'next/font/google';
-import Navbar from '@/app/components/Navbar';
 import { cn } from '@/lib/utils';
+import { AppSidebar } from '@/app/components/AppSidebar';
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,9 +19,13 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={cn(inter.className, 'bg-gray-50 text-gray-900')}>
-        <Navbar />
-
-        <main className="p-4">{children}</main>
+        <SidebarProvider>
+          <AppSidebar />
+          <main className="p-4 w-full">
+            <SidebarTrigger />
+            {children}
+          </main>
+        </SidebarProvider>
       </body>
     </html>
   );
