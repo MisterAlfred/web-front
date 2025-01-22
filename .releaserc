@@ -1,5 +1,6 @@
 {
   "branches": ["main", "develop"],
+  "repositoryUrl": "https://github.com/MisterAlfred/web-front",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
