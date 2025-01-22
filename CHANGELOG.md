@@ -1,3 +1,11 @@
+## [1.2.1](https://github.com/MisterAlfred/web-front/compare/v1.2.0...v1.2.1) (2025-01-22)
+
+
+### Bug Fixes
+
+* **alfred-19-4:** install commitizen ([#39](https://github.com/MisterAlfred/web-front/issues/39)) ([28f87ac](https://github.com/MisterAlfred/web-front/commit/28f87acbadb2cbbc51e911ee9aff9b4a3ce62d22))
+* **alfred-19-4:** install commitizen ([#39](https://github.com/MisterAlfred/web-front/issues/39)) ([#40](https://github.com/MisterAlfred/web-front/issues/40)) ([63337cd](https://github.com/MisterAlfred/web-front/commit/63337cdeb10599474ece031a79bf8fbd4cc4496c))
+
 # [1.2.0](https://github.com/MisterAlfred/web-front/compare/v1.1.1...v1.2.0) (2024-12-18)
 
 ### Bug Fixes
